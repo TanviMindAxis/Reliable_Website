@@ -503,6 +503,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     });
 
+    /* ==========================================
+       11. FOOTER CALLING LINKS
+    ========================================== */
+    document.querySelectorAll('.footer-phone-link, .footer a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const tel = this.getAttribute('href');
+            if (tel) {
+                window.location.href = tel;
+            }
+        });
+    });
+
     /* Custom cursor removed per user request */
 
 });
+

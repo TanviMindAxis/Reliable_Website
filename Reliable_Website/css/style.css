@@ -4535,6 +4535,42 @@ div[style*="grid-template-columns: 1fr 1.15fr"] {
   }
 }
 
+/* Footer Phone Links - Prominent Clickable Calling Style */
+.footer-phone-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  color: #082b4c !important;
+  font-weight: 700 !important;
+  font-size: 0.93rem !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  padding: 2px 0 !important;
+  transition: all 0.25s ease !important;
+}
+
+.footer-phone-link svg {
+  color: var(--accent-orange) !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.25s ease !important;
+}
+
+.footer-phone-link:hover,
+.footer a.footer-phone-link:hover {
+  color: var(--accent-orange) !important;
+  text-decoration: underline !important;
+  transform: translateX(3px) !important;
+}
+
+.footer-phone-link:hover svg {
+  transform: rotate(15deg) scale(1.18) !important;
+}
+
+.footer-phone-link:active {
+  transform: scale(0.97) !important;
+}
+
+
 
 
 
