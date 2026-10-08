@@ -277,25 +277,49 @@
                 <!-- Left: Media & Quick CTA -->
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.08); margin-bottom: 24px; position: relative;">
-                            <img src="assets/images/rail_metro.jpg" alt="Rail & Metro Survey" style="width: 100%; height: 320px; object-fit: cover; display: block;">
-                            <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(8,43,76,0.85)); padding: 20px 20px 15px; color: #fff;">
-                                <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.2px; color: #ffffff; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">GEOSPATIAL EXPERTISE</div>
-                                <div style="font-size: 18px; font-weight: 800; font-family: var(--font-heading); color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.7);">Rail & Metro Survey</div>
+                        <!-- Animated Geospatial Media Card -->
+                        <div class="spec-media-card">
+                            <img src="assets/images/rail_metro.jpg" alt="Rail & Metro Survey">
+                            <div class="spec-live-pill">
+                                <span class="spec-live-dot"></span>
+                                <span>SURVEY-GRADE ACCURACY</span>
+                            </div>
+                            <div class="spec-media-overlay">
+                                <div class="media-subtitle">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                    GEOSPATIAL EXPERTISE
+                                </div>
+                                <div class="media-title">Rail & Metro Survey</div>
                             </div>
                         </div>
-                                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                            <div style="background: #f1f5f9; border-left: 4px solid var(--accent-orange); border-radius: 0 8px 8px 0; padding: 14px 16px;">
-                                <div style="font-size: 13.5px; font-weight: 700; color: var(--dark-navy); margin-bottom: 2px;">Rapid Field Dispatch Across Maharashtra</div>
-                                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">Experienced railway surveying crews adhering strictly to Indian Railways & Metro safety norms.</div>
+                                                <!-- Animated Feature Highlight Cards -->
+                        <div class="spec-feature-cards">
+                            <div class="spec-feature-card">
+                                <div class="spec-feature-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </div>
+                                <div>
+                                    <div class="spec-feature-title">Rapid Field Dispatch Across Maharashtra</div>
+                                    <div class="spec-feature-desc">Experienced railway surveying crews adhering strictly to Indian Railways & Metro safety norms.</div>
+                                </div>
                             </div>
-                            <div style="background: #f1f5f9; border-left: 4px solid var(--primary-navy); border-radius: 0 8px 8px 0; padding: 14px 16px;">
-                                <div style="font-size: 13.5px; font-weight: 700; color: var(--dark-navy); margin-bottom: 2px;">Track Centerline & Gauge Verification</div>
-                                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">High-precision alignment checks, clearance gauge envelopes, and turnout geometry logging.</div>
+                            <div class="spec-feature-card theme-navy">
+                                <div class="spec-feature-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                                </div>
+                                <div>
+                                    <div class="spec-feature-title">Track Centerline & Gauge Verification</div>
+                                    <div class="spec-feature-desc">High-precision alignment checks, clearance gauge envelopes, and turnout geometry logging.</div>
+                                </div>
                             </div>
-                            <div style="background: #f1f5f9; border-left: 4px solid var(--accent-orange); border-radius: 0 8px 8px 0; padding: 14px 16px;">
-                                <div style="font-size: 13.5px; font-weight: 700; color: var(--dark-navy); margin-bottom: 2px;">Structure Gauge & As-Built Audits</div>
-                                <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">Platform screen door clearance, overhead catenary (OHE) mapping, and track monitoring.</div>
+                            <div class="spec-feature-card">
+                                <div class="spec-feature-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="spec-feature-title">Structure Gauge & As-Built Audits</div>
+                                    <div class="spec-feature-desc">Platform screen door clearance, overhead catenary (OHE) mapping, and track monitoring.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -309,35 +333,36 @@
                 <!-- Right: Technical Specs Table & Description -->
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="section-label" style="margin-bottom: 6px;">ENGINEERING SPECIFICATIONS</div>
-                        <h2 style="color: var(--dark-navy); font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 14px 0; font-weight: 800; font-family: var(--font-heading); line-height: 1.25;">Technical Standards & Deliverables</h2>
+                        <div class="section-label" style="margin-bottom: 6px; font-weight: 800; letter-spacing: 1.5px;">ENGINEERING SPECIFICATIONS</div>
+                        <h2 style="color: var(--dark-navy); font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 6px 0; font-weight: 800; font-family: var(--font-heading); line-height: 1.25;">Technical Standards & Deliverables</h2>
+                        <span class="spec-heading-accent"></span>
                         <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.65; margin: 0 0 20px 0;">Railway and Metro Rail engineering require the highest geodetic precision in civil construction. From high-speed track curvature and cant calculations to elevated viaduct pier staking and underground station cavern layouts, <strong>Reliable Land Survey Consultancy</strong> delivers millimeter-level surveying support for Indian Railways, Metro Rail Corporations (Maha-Metro, MMRDA), and rail EPC contractors.</p>
                         
                         <table style="width: 100%; border-collapse: collapse; margin-bottom: 10px;">
                             
-                        <tr style="border-bottom: 1px solid #edf2f7;">
-                            <td style="padding: 13px 0; font-weight: 800; color: #64748b; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--font-heading); width: 35%;">SERVICE TYPE</td>
-                            <td style="padding: 13px 0; font-weight: 700; color: var(--dark-navy); font-size: 14.5px; line-height: 1.4;">Rail & Metro Survey</td>
+                        <tr class="spec-table-row">
+                            <td class="spec-table-label">SERVICE TYPE</td>
+                            <td class="spec-table-val">Rail & Metro Survey</td>
                         </tr>
-                        <tr style="border-bottom: 1px solid #edf2f7;">
-                            <td style="padding: 13px 0; font-weight: 800; color: #64748b; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--font-heading); width: 35%;">PRIMARY EQUIPMENT</td>
-                            <td style="padding: 13px 0; font-weight: 700; color: var(--dark-navy); font-size: 14.5px; line-height: 1.4;">0.5" High-Precision Total Stations, Track Gauge Rigs, Precise Digital Levels, DGPS</td>
+                        <tr class="spec-table-row">
+                            <td class="spec-table-label">PRIMARY EQUIPMENT</td>
+                            <td class="spec-table-val">0.5" High-Precision Total Stations, Track Gauge Rigs, Precise Digital Levels, DGPS</td>
                         </tr>
-                        <tr style="border-bottom: 1px solid #edf2f7;">
-                            <td style="padding: 13px 0; font-weight: 800; color: #64748b; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--font-heading); width: 35%;">GEOMETRIC ACCURACY</td>
-                            <td style="padding: 13px 0; font-weight: 700; color: var(--dark-navy); font-size: 14.5px; line-height: 1.4;">Sub-millimeter pier positioning and track horizontal/vertical curvature control</td>
+                        <tr class="spec-table-row">
+                            <td class="spec-table-label">GEOMETRIC ACCURACY</td>
+                            <td class="spec-table-val">Sub-millimeter pier positioning and track horizontal/vertical curvature control</td>
                         </tr>
-                        <tr style="border-bottom: 1px solid #edf2f7;">
-                            <td style="padding: 13px 0; font-weight: 800; color: #64748b; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--font-heading); width: 35%;">DELIVERABLES</td>
-                            <td style="padding: 13px 0; font-weight: 700; color: var(--dark-navy); font-size: 14.5px; line-height: 1.4;">Track Centerline Coordinates, Pier Foundation CADs, Clearance Envelopes, Station Yard Layouts</td>
+                        <tr class="spec-table-row">
+                            <td class="spec-table-label">DELIVERABLES</td>
+                            <td class="spec-table-val">Track Centerline Coordinates, Pier Foundation CADs, Clearance Envelopes, Station Yard Layouts</td>
                         </tr>
-                        <tr style="border-bottom: 1px solid #edf2f7;">
-                            <td style="padding: 13px 0; font-weight: 800; color: #64748b; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--font-heading); width: 35%;">APPLICATIONS</td>
-                            <td style="padding: 13px 0; font-weight: 700; color: var(--dark-navy); font-size: 14.5px; line-height: 1.4;">Metro Rail Corridors, Dedicated Freight Corridors (DFC), Railway Yard Remodeling, High-Speed Rail</td>
+                        <tr class="spec-table-row">
+                            <td class="spec-table-label">APPLICATIONS</td>
+                            <td class="spec-table-val">Metro Rail Corridors, Dedicated Freight Corridors (DFC), Railway Yard Remodeling, High-Speed Rail</td>
                         </tr>
-                        <tr style="border-bottom: 1px solid #edf2f7;">
-                            <td style="padding: 13px 0; font-weight: 800; color: #64748b; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--font-heading); width: 35%;">LOCATION</td>
-                            <td style="padding: 13px 0; font-weight: 700; color: var(--dark-navy); font-size: 14.5px; line-height: 1.4;">Pune, Maharashtra | Executing Rail Projects Pan-India</td>
+                        <tr class="spec-table-row">
+                            <td class="spec-table-label">LOCATION</td>
+                            <td class="spec-table-val">Pune, Maharashtra | Executing Rail Projects Pan-India</td>
                         </tr>
                         </table>
                     </div>
@@ -431,6 +456,36 @@
                 <div class="faq-card-body">
                     <div class="faq-card-content">
                         Yes. We map existing turnouts, track center-to-center distances, signal posts, OHE masts, and cross-overs to support yard modernization CAD designs.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-card fade-up">
+                <div class="faq-card-header">
+                    <span class="faq-question">How do you establish track centerlines and cant (super-elevation) measurements?</span>
+                </div>
+                <div class="faq-card-body">
+                    <div class="faq-card-content">
+                        Using calibrated electronic track gauges and precision total stations, we measure gauge width, cross-level (cant), and true centerline coordinates at defined sleeper intervals to evaluate track geometry against RDSO specifications.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-card fade-up">
+                <div class="faq-card-header">
+                    <span class="faq-question">What methodology is used for underground metro tunnel alignment control?</span>
+                </div>
+                <div class="faq-card-body">
+                    <div class="faq-card-content">
+                        We execute surface geodetic primary control networks, optical plumbing or gyro-theodolite transfer down access shafts, and subterranean traverse networks to ensure zero-error breakout tolerance for Tunnel Boring Machines (TBMs).
+                    </div>
+                </div>
+            </div>
+            <div class="faq-card fade-up">
+                <div class="faq-card-header">
+                    <span class="faq-question">Do you provide Structure Gauge and Infringement Clearance (SOD) surveys?</span>
+                </div>
+                <div class="faq-card-body">
+                    <div class="faq-card-content">
+                        Yes. We perform Structure Gauge Clearance (Schedule of Dimensions) surveys around overhead contact systems (OHE), platform edges, bridge girders, and tunnel walls to certify zero kinematic envelope infringements.
                     </div>
                 </div>
             </div>

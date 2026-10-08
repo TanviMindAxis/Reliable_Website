@@ -3758,8 +3758,8 @@ a, button, .btn, .nav-btn, summary, [role="button"], .tab-btn, .industry-card, .
 }
 
 .contact-card-header {
-  font-size: 22px;
-  color: var(--dark-navy);
+  font-size: 24px;
+  color: #082b4c;
   font-weight: 800;
   font-family: var(--font-heading);
   margin: 0 0 8px 0;
@@ -3767,9 +3767,10 @@ a, button, .btn, .nav-btn, summary, [role="button"], .tab-btn, .industry-card, .
 }
 
 .contact-card-sub {
-  color: var(--text-muted);
-  font-size: 14px;
-  line-height: 1.55;
+  color: #1e293b;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.6;
   margin: 0 0 22px 0;
 }
 
@@ -3794,10 +3795,10 @@ a, button, .btn, .nav-btn, summary, [role="button"], .tab-btn, .industry-card, .
 }
 
 .contact-label {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--dark-navy);
-  letter-spacing: 0.5px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #082b4c;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   margin-bottom: 6px;
   display: block;
@@ -3807,16 +3808,23 @@ a, button, .btn, .nav-btn, summary, [role="button"], .tab-btn, .industry-card, .
 .contact-input-field {
   width: 100%;
   padding: 12px 15px;
-  border: 1.5px solid #d9e2ec;
+  border: 1.5px solid #cbd5e1;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 14.5px;
   font-family: var(--font-main);
-  color: var(--text-dark);
+  color: #0f172a;
+  font-weight: 600;
   background: #ffffff;
   outline: none;
   transition: all 0.25s ease;
   box-sizing: border-box;
   display: block;
+}
+
+.contact-input-field::placeholder {
+  color: #475569;
+  font-weight: 500;
+  opacity: 0.95;
 }
 
 .contact-input-field:focus {
@@ -3827,7 +3835,7 @@ a, button, .btn, .nav-btn, summary, [role="button"], .tab-btn, .industry-card, .
 
 .info-block-row {
   background: #f8fafc;
-  border: 1px solid #edf2f7;
+  border: 1.5px solid #cbd5e1;
   border-radius: 10px;
   padding: 14px 16px;
   display: flex;
@@ -3837,9 +3845,20 @@ a, button, .btn, .nav-btn, summary, [role="button"], .tab-btn, .industry-card, .
 }
 
 .info-block-row:hover {
-  border-color: #cbd5e1;
+  border-color: #94a3b8;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(8, 43, 76, 0.05);
+  box-shadow: 0 6px 16px rgba(8, 43, 76, 0.08);
+  background: #ffffff;
+}
+
+.info-block-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #082b4c;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  font-family: var(--font-heading);
 }
 
 
@@ -4569,6 +4588,359 @@ div[style*="grid-template-columns: 1fr 1.15fr"] {
 .footer-phone-link:active {
   transform: scale(0.97) !important;
 }
+
+/* =========================================================
+   SERVICE TECHNICAL SPECIFICATIONS & MEDIA ANIMATIONS
+   Dynamic interactive animations for media, highlight cards, headings, and spec tables
+   ========================================================= */
+
+/* 1. Main Grid Card Container with Ambient Depth */
+.service-spec-grid {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.4s ease;
+  position: relative;
+}
+
+.service-spec-grid:hover {
+  box-shadow: 0 26px 55px rgba(8, 43, 76, 0.16), 0 0 0 1px rgba(244, 123, 32, 0.15) !important;
+}
+
+/* 2. Interactive Media Card with Geospatial Scanner */
+.spec-media-card {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px rgba(8, 43, 76, 0.12) !important;
+  margin-bottom: 22px !important;
+  position: relative !important;
+  background: #082b4c;
+  cursor: pointer;
+}
+
+.spec-media-card img {
+  width: 100% !important;
+  height: 320px !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease !important;
+}
+
+.spec-media-card:hover img {
+  transform: scale(1.06) !important;
+  filter: brightness(1.04) contrast(1.03) !important;
+}
+
+
+/* Corner Reticle Viewfinder Brackets (Robotic Surveyor View) */
+.spec-media-card::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+.spec-media-card:hover::after {
+  border-color: rgba(244, 123, 32, 0.6);
+  transform: scale(0.985);
+}
+
+/* Floating Live Survey Status Pill */
+.spec-live-pill {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(8, 43, 76, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  z-index: 4;
+  pointer-events: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.spec-media-card:hover .spec-live-pill {
+  transform: translateY(-2px);
+  background: rgba(8, 43, 76, 0.95);
+  border-color: rgba(244, 123, 32, 0.5);
+}
+
+.spec-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: specLivePulse 2s infinite ease-in-out;
+}
+
+@keyframes specLivePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 8px #22c55e;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.75;
+    box-shadow: 0 0 16px #22c55e, 0 0 24px rgba(34, 197, 94, 0.4);
+  }
+}
+
+/* Media Overlay Title Banner */
+.spec-media-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(8, 43, 76, 0.95) 0%, rgba(8, 43, 76, 0.7) 60%, transparent 100%);
+  padding: 24px 20px 16px;
+  color: #fff;
+  z-index: 3;
+  transition: padding-bottom 0.3s ease, background 0.3s ease;
+}
+
+.spec-media-card:hover .spec-media-overlay {
+  padding-bottom: 20px;
+  background: linear-gradient(to top, rgba(8, 43, 76, 0.98) 0%, rgba(8, 43, 76, 0.75) 65%, transparent 100%);
+}
+
+.spec-media-overlay .media-subtitle {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffaa5b;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.spec-media-overlay .media-title {
+  font-size: 19px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.spec-media-card:hover .media-title {
+  transform: translateX(4px);
+}
+
+/* 3. Interactive Feature Highlight Cards */
+.spec-feature-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.spec-feature-card {
+  background: #f8fafc;
+  border-left: 4px solid var(--accent-orange);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              box-shadow 0.35s ease,
+              border-color 0.3s ease,
+              border-left-width 0.25s ease;
+  cursor: pointer;
+  border-top: 1px solid rgba(226, 232, 240, 0.6);
+  border-right: 1px solid rgba(226, 232, 240, 0.6);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.spec-feature-card.theme-navy {
+  border-left-color: var(--primary-navy);
+}
+
+.spec-feature-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(244, 123, 32, 0.08), transparent);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.spec-feature-card.theme-navy::before {
+  background: linear-gradient(90deg, rgba(18, 63, 104, 0.08), transparent);
+}
+
+.spec-feature-card:hover {
+  transform: translateX(8px);
+  background: #ffffff !important;
+  border-left-width: 6px;
+  box-shadow: 0 10px 24px rgba(8, 43, 76, 0.09), 0 2px 6px rgba(8, 43, 76, 0.04);
+  border-color: #cbd5e1;
+  border-left-color: var(--accent-orange);
+}
+
+.spec-feature-card.theme-navy:hover {
+  border-left-color: var(--primary-navy);
+}
+
+.spec-feature-card:hover::before {
+  width: 100%;
+}
+
+.spec-feature-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: rgba(244, 123, 32, 0.12);
+  color: var(--accent-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease;
+}
+
+.spec-feature-card.theme-navy .spec-feature-icon {
+  background: rgba(18, 63, 104, 0.1);
+  color: var(--primary-navy);
+}
+
+.spec-feature-card:hover .spec-feature-icon {
+  transform: scale(1.15) rotate(6deg);
+  background: var(--accent-orange);
+  color: #ffffff;
+}
+
+.spec-feature-card.theme-navy:hover .spec-feature-icon {
+  background: var(--primary-navy);
+  color: #ffffff;
+}
+
+.spec-feature-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark-navy);
+  margin-bottom: 2px;
+  transition: color 0.25s ease;
+}
+
+.spec-feature-card:hover .spec-feature-title {
+  color: var(--accent-orange);
+}
+
+.spec-feature-card.theme-navy:hover .spec-feature-title {
+  color: var(--primary-navy);
+}
+
+.spec-feature-desc {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* 4. Animated Section Heading & Glowing Accent Bar */
+.spec-heading-accent {
+  display: block;
+  width: 55px;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--accent-orange), #ff9838);
+  border-radius: 3px;
+  margin: 10px 0 18px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.spec-heading-accent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+  animation: specAccentShimmer 2.8s infinite;
+}
+
+@keyframes specAccentShimmer {
+  0% {
+    left: -100%;
+  }
+  35%, 100% {
+    left: 140%;
+  }
+}
+
+/* 5. High-Precision Specification Table Rows */
+.spec-table-row {
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+  border-left: 3px solid transparent;
+}
+
+.spec-table-row:hover {
+  background-color: rgba(244, 123, 32, 0.045);
+  border-left-color: var(--accent-orange);
+}
+
+.spec-table-label {
+  padding: 13px 12px 13px 0 !important;
+  font-weight: 800 !important;
+  color: #64748b !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  font-family: var(--font-heading) !important;
+  width: 35% !important;
+  vertical-align: middle !important;
+  transition: color 0.25s ease, transform 0.25s ease !important;
+}
+
+.spec-table-row:hover .spec-table-label {
+  color: var(--accent-orange) !important;
+  transform: translateX(3px);
+}
+
+.spec-table-val {
+  padding: 13px 14px 13px 0 !important;
+  font-weight: 700 !important;
+  color: var(--dark-navy) !important;
+  font-size: 14.5px !important;
+  line-height: 1.45 !important;
+  vertical-align: middle !important;
+  transition: color 0.25s ease !important;
+}
+
+.spec-table-row:hover .spec-table-val {
+  color: #051a2f !important;
+}
+
+.spec-bullet {
+  display: none !important;
+}
+
 
 
 

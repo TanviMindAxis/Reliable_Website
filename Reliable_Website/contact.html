@@ -271,7 +271,7 @@
             <div class="text-center" style="margin-bottom: 35px;">
                 <div class="section-label" style="margin-bottom: 8px;">GET IN TOUCH</div>
                 <h2 class="section-heading" style="font-size: clamp(2rem, 3.5vw, 2.5rem); color: var(--dark-navy); font-weight: 800; font-family: var(--font-heading); margin: 0 0 10px 0;">Consultation & Headquarters</h2>
-                <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 15px; line-height: 1.6;">
+                <p style="color: #1e293b; max-width: 650px; margin: 0 auto; font-size: 15.5px; font-weight: 500; line-height: 1.6;">
                     Submit your project specifications for an engineering quotation or reach out directly to our Pune headquarters.
                 </p>
             </div>
@@ -293,8 +293,8 @@
             .contact-box-card {
                 background: #ffffff;
                 border-radius: 16px;
-                box-shadow: 0 10px 30px rgba(8, 43, 76, 0.06);
-                border: 1px solid #e2e8f0;
+                box-shadow: 0 12px 35px rgba(8, 43, 76, 0.08);
+                border: 1.5px solid #cbd5e1;
                 padding: clamp(28px, 3.5vw, 40px);
                 display: flex;
                 flex-direction: column;
@@ -327,17 +327,18 @@
                 }
             }
             .contact-card-header {
-                font-size: 22px;
-                color: var(--dark-navy);
+                font-size: 24px;
+                color: #082b4c;
                 font-weight: 800;
                 font-family: var(--font-heading);
                 margin: 0 0 8px 0;
                 line-height: 1.3;
             }
             .contact-card-sub {
-                color: var(--text-muted);
-                font-size: 14px;
-                line-height: 1.55;
+                color: #1e293b;
+                font-size: 14.5px;
+                font-weight: 500;
+                line-height: 1.6;
                 margin: 0 0 22px 0;
             }
             .contact-form-grid {
@@ -358,10 +359,10 @@
                 grid-column: span 2;
             }
             .contact-label {
-                font-size: 11.5px;
-                font-weight: 700;
-                color: var(--dark-navy);
-                letter-spacing: 0.5px;
+                font-size: 12px;
+                font-weight: 800;
+                color: #082b4c;
+                letter-spacing: 0.6px;
                 text-transform: uppercase;
                 margin-bottom: 6px;
                 display: block;
@@ -370,16 +371,22 @@
             .contact-input-field {
                 width: 100%;
                 padding: 12px 15px;
-                border: 1.5px solid #d9e2ec;
+                border: 1.5px solid #cbd5e1;
                 border-radius: 8px;
-                font-size: 14px;
+                font-size: 14.5px;
                 font-family: var(--font-main);
-                color: var(--text-dark);
+                color: #0f172a;
+                font-weight: 600;
                 background: #ffffff;
                 outline: none;
                 transition: all 0.25s ease;
                 box-sizing: border-box;
                 display: block;
+            }
+            .contact-input-field::placeholder {
+                color: #475569;
+                font-weight: 500;
+                opacity: 0.95;
             }
             .contact-input-field:focus {
                 border-color: var(--accent-orange);
@@ -388,7 +395,7 @@
             }
             .info-block-row {
                 background: #f8fafc;
-                border: 1px solid #edf2f7;
+                border: 1.5px solid #cbd5e1;
                 border-radius: 10px;
                 padding: 14px 16px;
                 display: flex;
@@ -397,9 +404,19 @@
                 transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
             }
             .info-block-row:hover {
-                border-color: #cbd5e1;
+                border-color: #94a3b8;
                 transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(8, 43, 76, 0.05);
+                box-shadow: 0 6px 16px rgba(8, 43, 76, 0.08);
+                background: #ffffff;
+            }
+            .info-block-tag {
+                font-size: 11.5px;
+                font-weight: 800;
+                color: #082b4c;
+                letter-spacing: 0.8px;
+                text-transform: uppercase;
+                margin-bottom: 3px;
+                font-family: var(--font-heading);
             }
         </style>
         
@@ -480,9 +497,9 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 </div>
                                 <div style="flex: 1;">
-                                    <div style="font-size: 11px; font-weight: 800; color: #8898aa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; font-family: var(--font-heading);">HEADQUARTERS LOCATION</div>
-                                    <p style="color: var(--dark-navy); font-size: 14.5px; font-weight: 700; line-height: 1.3; margin: 0;">Pune, Maharashtra, India</p>
-                                    <p style="color: var(--text-muted); font-size: 12.5px; margin: 2px 0 0 0; line-height: 1.3;">Executing surveys across Maharashtra & Pan-India</p>
+                                    <div class="info-block-tag">HEADQUARTERS LOCATION</div>
+                                    <p style="color: #082b4c; font-size: 15px; font-weight: 800; line-height: 1.35; margin: 0;">Pune, Maharashtra, India</p>
+                                    <p style="color: #1e293b; font-size: 13px; font-weight: 500; margin: 3px 0 0 0; line-height: 1.35;">Executing surveys across Maharashtra &amp; Pan-India</p>
                                 </div>
                             </div>
 
@@ -492,8 +509,8 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                 </div>
                                 <div style="flex: 1;">
-                                    <div style="font-size: 11px; font-weight: 800; color: #8898aa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; font-family: var(--font-heading);">PROPRIETORS</div>
-                                    <p style="color: var(--dark-navy); font-size: 14.5px; font-weight: 700; margin: 0; line-height: 1.4;">Mahesh Deshmukh &amp; Sharad Pingale</p>
+                                    <div class="info-block-tag">PROPRIETORS</div>
+                                    <p style="color: #082b4c; font-size: 15px; font-weight: 800; margin: 0; line-height: 1.4;">Mahesh Deshmukh &amp; Sharad Pingale</p>
                                 </div>
                             </div>
 
@@ -503,13 +520,13 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                 </div>
                                 <div style="flex: 1;">
-                                    <div style="font-size: 11px; font-weight: 800; color: #8898aa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; font-family: var(--font-heading);">DIRECT CONTACT PHONES</div>
+                                    <div class="info-block-tag">DIRECT CONTACT PHONES</div>
                                     <div style="display: flex; flex-direction: column; gap: 4px;">
-                                        <div style="font-size: 14px; color: var(--dark-navy);">
-                                            <span style="font-weight: 600; color: #64748b;">Mahesh Deshmukh:</span> <a href="tel:+918600044688" style="color: var(--dark-navy); font-size: 14.5px; font-weight: 800; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-orange)'" onmouseout="this.style.color='var(--dark-navy)'">+91 86000 44688</a>
+                                        <div style="font-size: 14.5px; color: #082b4c;">
+                                            <span style="font-weight: 700; color: #082b4c;">Mahesh Deshmukh:</span> <a href="tel:+918600044688" style="color: #082b4c; font-size: 15px; font-weight: 800; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-orange)'" onmouseout="this.style.color='#082b4c'">+91 86000 44688</a>
                                         </div>
-                                        <div style="font-size: 14px; color: var(--dark-navy);">
-                                            <span style="font-weight: 600; color: #64748b;">Sharad Pingale:</span> <a href="tel:+919604646777" style="color: var(--dark-navy); font-size: 14.5px; font-weight: 800; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-orange)'" onmouseout="this.style.color='var(--dark-navy)'">+91 96046 46777</a>
+                                        <div style="font-size: 14.5px; color: #082b4c;">
+                                            <span style="font-weight: 700; color: #082b4c;">Sharad Pingale:</span> <a href="tel:+919604646777" style="color: #082b4c; font-size: 15px; font-weight: 800; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent-orange)'" onmouseout="this.style.color='#082b4c'">+91 96046 46777</a>
                                         </div>
                                     </div>
                                 </div>
@@ -521,8 +538,8 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                                 </div>
                                 <div style="flex: 1;">
-                                    <div style="font-size: 11px; font-weight: 800; color: #8898aa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; font-family: var(--font-heading);">OFFICIAL EMAIL</div>
-                                    <a href="mailto:info@reliablelandsurvey.in" style="color: var(--accent-orange); font-size: 14.5px; font-weight: 700; text-decoration: none; word-break: break-all;">info@reliablelandsurvey.in</a>
+                                    <div class="info-block-tag">OFFICIAL EMAIL</div>
+                                    <a href="mailto:info@reliablelandsurvey.in" style="color: var(--accent-orange); font-size: 15px; font-weight: 800; text-decoration: none; word-break: break-all;">info@reliablelandsurvey.in</a>
                                 </div>
                             </div>
 
@@ -532,9 +549,9 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                 </div>
                                 <div style="flex: 1;">
-                                    <div style="font-size: 11px; font-weight: 800; color: #8898aa; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; font-family: var(--font-heading);">OPERATING HOURS</div>
-                                    <p style="color: var(--dark-navy); font-size: 14px; font-weight: 700; margin: 0 0 2px 0;">Monday – Saturday: 9:00 AM – 7:00 PM</p>
-                                    <span style="background: rgba(244, 123, 32, 0.12); color: var(--accent-orange); font-size: 10.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.5px; display: inline-block;">CLOSED ON SUNDAYS</span>
+                                    <div class="info-block-tag">OPERATING HOURS</div>
+                                    <p style="color: #082b4c; font-size: 14.5px; font-weight: 800; margin: 0 0 4px 0;">Monday – Saturday: 9:00 AM – 7:00 PM</p>
+                                    <span style="background: #ffedd5; color: #c2410c; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; display: inline-block; border: 1px solid rgba(194, 65, 12, 0.2);">CLOSED ON SUNDAYS</span>
                                 </div>
                             </div>
 
@@ -632,9 +649,8 @@
             <!-- Left Column: Visit Us & Highlights -->
             <div>
                 <!-- Pre-Label Tag -->
-                <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
-                    <span class="section-label" style="margin: 0; font-size: 11.5px; letter-spacing: 1.5px;">VISIT US</span>
+                <div style="margin-bottom: 12px;">
+                    <span class="section-label" style="margin: 0; font-size: 14px; font-weight: 800; letter-spacing: 2.5px; display: inline-block;">VISIT US</span>
                 </div>
 
                 <!-- Main Section Title -->
