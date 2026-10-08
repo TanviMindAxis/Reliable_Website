@@ -22,8 +22,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20261008_6">
-    <link rel="stylesheet" href="css/responsive.css?v=20261008_6">
+    <link rel="stylesheet" href="css/style.css?v=20261008_10">
+    <link rel="stylesheet" href="css/responsive.css?v=20261008_10">
 
     <!-- Strictly prevent horizontal overflow on all viewports -->
     <style>
@@ -243,21 +243,24 @@
         <img src="assets/images/about-hero-clean.jpg" alt="Total Station Survey" class="bg-pan-anim"
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; object-position: right center; z-index: 1;">
 
-        <!-- Overlay Text (Matches About Us page exactly) -->
+                <!-- Soft readability gradient overlay for mobile & tablet -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(234, 244, 252, 0.92) 0%, rgba(234, 244, 252, 0.78) 55%, rgba(234, 244, 252, 0.35) 100%); z-index: 1; pointer-events: none;"></div>
+
+<!-- Overlay Text (Matches About Us page exactly) -->
         <div
             style="position: absolute; top: 135px; left: 0; width: 100%; height: calc(100% - 135px); display: flex; flex-direction: column; justify-content: center; padding: 0 8%; z-index: 2; pointer-events: none; box-sizing: border-box;">
             <div class="text-fade-in-left" style="max-width: 650px; padding-bottom: 20px; pointer-events: auto;">
-                <div style="font-size: 12px; font-weight: 800; color: var(--primary-navy); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                <div class="service-breadcrumb" style="font-size: 11.5px; font-weight: 800; color: var(--primary-navy); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                     <a href="index.html" style="color: #4b5563; text-decoration: none;">HOME</a>
                     <span style="color: var(--accent-orange);">&raquo;</span>
                     <a href="services.html" style="color: #4b5563; text-decoration: none;">SERVICES</a>
                     <span style="color: var(--accent-orange);">&raquo;</span>
-                    <span style="color: var(--accent-orange); font-weight: 800;">TOTAL STATION SURVEY</span>
+                    <span style="color: var(--accent-orange); font-weight: 800; white-space: nowrap;">TOTAL STATION SURVEY</span>
                 </div>
                 <div style="width: 40px; height: 3px; background: var(--accent-orange); margin-bottom: 20px;"></div>
-                <h1
-                    style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--dark-navy); line-height: 1.15; margin-bottom: 18px; font-weight: 800; text-shadow: 0 0 15px rgba(255,255,255,0.7);">
-                    High-Precision <span style="color: var(--accent-orange);">Total Station Survey.</span>
+                <h1 class="service-hero-title"
+                    style="font-size: clamp(1.85rem, 5vw, 3.2rem); color: var(--dark-navy); line-height: 1.2; margin-bottom: 18px; font-weight: 800; text-shadow: 0 0 15px rgba(255,255,255,0.85);">
+                    <span class="hero-title-main">Total Station</span> <span class="hero-title-accent" style="color: var(--accent-orange); white-space: nowrap;">Survey</span>
                 </h1>
                 <p style="font-size: 1.05rem; color: #333; line-height: 1.6; max-width: 550px; font-weight: 700; text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.9);">
                     Sub-second electronic theodolite measurement, boundary demarcation, and construction staking across Pune & Maharashtra.
@@ -267,9 +270,9 @@
     </div>
 
     <!-- TECHNICAL SPECS & OVERVIEW -->
-    <section class="section" style="padding: 70px 0; background: #f8fafc;">
+    <section class="section service-spec-section engineering-survey-section" style="padding: 75px 0; position: relative; overflow: hidden; background: #f0f7fd url('assets/images/engineering-survey-bg.png') no-repeat center center; background-size: cover;">
         <div class="container">
-            <div class="service-spec-grid" style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: stretch; background: #ffffff; border-radius: 16px; box-shadow: 0 12px 35px rgba(8, 43, 76, 0.06); border: 1px solid #e2e8f0; padding: clamp(25px, 4vw, 45px); box-sizing: border-box;">
+            <div class="service-spec-grid" style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: stretch; background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.88) 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 16px; box-shadow: 0 20px 45px rgba(8, 43, 76, 0.12); border: 1px solid rgba(255, 255, 255, 0.95); padding: clamp(25px, 4vw, 45px); box-sizing: border-box;">
                 
                 <!-- Left: Media & Quick CTA -->
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -277,8 +280,8 @@
                         <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.08); margin-bottom: 24px; position: relative;">
                             <img src="assets/images/railway.jpg" alt="Total Station Survey" style="width: 100%; height: 320px; object-fit: cover; display: block;">
                             <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(8,43,76,0.85)); padding: 20px 20px 15px; color: #fff;">
-                                <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--accent-orange); text-transform: uppercase;">GEOSPATIAL EXPERTISE</div>
-                                <div style="font-size: 18px; font-weight: 800; font-family: var(--font-heading);">Total Station Survey</div>
+                                <div style="font-size: 11px; font-weight: 800; letter-spacing: 1.2px; color: #ffffff; text-transform: uppercase; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">GEOSPATIAL EXPERTISE</div>
+                                <div style="font-size: 18px; font-weight: 800; font-family: var(--font-heading); color: #ffffff; text-shadow: 0 1px 4px rgba(0,0,0,0.7);">Total Station Survey</div>
                             </div>
                         </div>
                                                 <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -314,7 +317,7 @@
                             
                         <tr style="border-bottom: 1px solid #edf2f7;">
                             <td style="padding: 13px 0; font-weight: 800; color: #64748b; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--font-heading); width: 35%;">SERVICE TYPE</td>
-                            <td style="padding: 13px 0; font-weight: 700; color: var(--dark-navy); font-size: 14.5px; line-height: 1.4;">Electronic Total Station (ETS) Precision Measurement</td>
+                            <td style="padding: 13px 0; font-weight: 700; color: var(--dark-navy); font-size: 14.5px; line-height: 1.4;">Total Station Survey</td>
                         </tr>
                         <tr style="border-bottom: 1px solid #edf2f7;">
                             <td style="padding: 13px 0; font-weight: 800; color: #64748b; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; font-family: var(--font-heading); width: 35%;">PRIMARY EQUIPMENT</td>
