@@ -4448,13 +4448,38 @@ div[style*="grid-template-columns: 1fr 1.15fr"] {
    SERVICE PAGE CTA BANNER
    (High-contrast typography & animated buttons)
 ========================================== */
+@keyframes gridPan {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
 .service-cta-banner {
-  background: linear-gradient(135deg, #082B4C 0%, #123F68 100%) !important;
+  background-color: var(--dark-navy) !important;
+  background-image: url('../assets/images/counter-bg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
   padding: 85px 20px !important;
   text-align: center !important;
   color: #ffffff !important;
   position: relative !important;
   overflow: hidden !important;
+}
+
+.service-cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridPan 15s linear infinite;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .service-cta-banner h2 {

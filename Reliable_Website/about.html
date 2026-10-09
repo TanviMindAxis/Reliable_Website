@@ -328,12 +328,15 @@
     }
     .mission-card p { transition: color 0.3s ease; }
     .mission-card:hover p { color: rgba(255,255,255,0.9) !important; }
+    @keyframes gridPan { 0% { background-position: 0px 0px; } 100% { background-position: 40px 40px; } }
     </style>
-    <section class="section" style="padding: 100px 20px; background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-navy) 100%); overflow: hidden; position: relative;">
+    <section class="section" style="padding: 100px 20px; background-color: var(--dark-navy); background-image: url('assets/images/counter-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden; position: relative;">
+        <!-- Animated Topo Grid Background -->
+        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 40px 40px; animation: gridPan 15s linear infinite; opacity: 0.5; pointer-events: none; z-index: 1;"></div>
         <!-- Subtle dark background glow -->
         <div style="position: absolute; top: 0; right: 0; width: min(600px, 100vw); height: min(600px, 100vw); max-width: 100%; background: radial-gradient(circle, rgba(244,123,32,0.15) 0%, transparent 70%); pointer-events: none; overflow: hidden;"></div>
         
-        <div class="container">
+        <div class="container" style="position: relative; z-index: 2;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(30px, 4vw, 60px); align-items: center;">
                 
                 <!-- Left Content -->
