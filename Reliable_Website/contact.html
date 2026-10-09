@@ -657,10 +657,11 @@
 
                     <form id="contactForm" action="https://formsubmit.co/tanviii6104@gmail.com" method="POST" style="display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
                         <!-- Destination & Configuration Fields -->
-                        <input type="hidden" name="_subject" value="New Project Quotation Request - Reliable Land Survey">
+                        <input type="hidden" name="_subject" value="New Project Quotation Request - Reliable Land Surveyors">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="contact.html?submitted=true">
+                        <input type="hidden" name="_replyto" id="contactReplyTo" value="">
+                        <input type="hidden" name="_next" id="contactNext" value="">
                         <input type="text" name="_honey" style="display:none">
 
                         <div class="contact-form-grid">
@@ -1151,7 +1152,7 @@
         </div>
     </footer>
 <!-- Script -->
-    <script src="js/script.js?v=20261009_04"></script>
+    <script src="js/script.js?v=20261009_05"></script>
 
     <!-- Contact Form AJAX Submission & Redirect Handler -->
     <script>
@@ -1191,6 +1192,21 @@
 
             if (statusBox) {
                 statusBox.style.display = 'none';
+            }
+
+            // Sync _replyto and absolute _next for FormSubmit
+            var emailVal = (document.getElementById('contact-email') || {}).value;
+            var replyToInput = form.querySelector('input[name="_replyto"]');
+            if (replyToInput && emailVal) {
+                replyToInput.value = emailVal;
+            }
+            var nextInput = form.querySelector('input[name="_next"]');
+            if (nextInput) {
+                if (window.location.protocol.startsWith('http')) {
+                    nextInput.value = window.location.origin + window.location.pathname + '?submitted=true';
+                } else {
+                    nextInput.value = '';
+                }
             }
 
             var formData = new FormData(form);

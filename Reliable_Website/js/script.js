@@ -538,6 +538,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 statusBox.style.display = 'none';
             }
 
+            // Sync _replyto and absolute _next for FormSubmit
+            var emailInput = form.querySelector('input[type="email"]');
+            var replyToInput = form.querySelector('input[name="_replyto"]');
+            if (replyToInput && emailInput && emailInput.value) {
+                replyToInput.value = emailInput.value;
+            }
+            var nextInput = form.querySelector('input[name="_next"]');
+            if (nextInput) {
+                if (window.location.protocol.startsWith('http')) {
+                    nextInput.value = window.location.origin + window.location.pathname + '?submitted=true';
+                } else {
+                    nextInput.value = '';
+                }
+            }
+
             var formData = new FormData(form);
 
             fetch('https://formsubmit.co/ajax/tanviii6104@gmail.com', {
