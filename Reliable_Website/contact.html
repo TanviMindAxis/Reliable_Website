@@ -393,6 +393,82 @@
                 box-shadow: 0 0 0 3px rgba(244, 123, 32, 0.15);
                 background: #ffffff;
             }
+            /* CONTINUOUS ANIMATED TABS SYSTEM */
+            @keyframes tabFloatContinuous {
+                0%, 100% {
+                    transform: translateY(0);
+                    border-color: #cbd5e1;
+                    box-shadow: 0 3px 10px rgba(8, 43, 76, 0.04);
+                    background: #f8fafc;
+                }
+                50% {
+                    transform: translateY(-3.5px);
+                    border-color: rgba(244, 123, 32, 0.55);
+                    box-shadow: 0 10px 24px rgba(8, 43, 76, 0.09), 0 0 0 1px rgba(244, 123, 32, 0.22);
+                    background: #ffffff;
+                }
+            }
+            @keyframes tabShimmerSweep {
+                0%, 35% {
+                    left: -120%;
+                }
+                75%, 100% {
+                    left: 170%;
+                }
+            }
+            @keyframes iconBeaconGlow {
+                0%, 100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 rgba(244, 123, 32, 0);
+                }
+                50% {
+                    transform: scale(1.08);
+                    box-shadow: 0 0 14px 2px rgba(244, 123, 32, 0.28);
+                }
+            }
+            @keyframes actionMapFloat {
+                0%, 100% {
+                    transform: translateY(0);
+                    box-shadow: 0 4px 12px rgba(8, 43, 76, 0.15);
+                }
+                50% {
+                    transform: translateY(-2.5px);
+                    box-shadow: 0 8px 20px rgba(8, 43, 76, 0.28);
+                }
+            }
+            @keyframes actionWaFloat {
+                0%, 100% {
+                    transform: translateY(0);
+                    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+                }
+                50% {
+                    transform: translateY(-2.5px);
+                    box-shadow: 0 10px 22px rgba(37, 211, 102, 0.45);
+                }
+            }
+            @keyframes faqCardContinuous {
+                0%, 100% {
+                    transform: translateY(0);
+                    border-color: #cbd5e1;
+                    box-shadow: 0 4px 15px rgba(8, 43, 76, 0.03);
+                }
+                50% {
+                    transform: translateY(-2.5px);
+                    border-color: rgba(244, 123, 32, 0.42);
+                    box-shadow: 0 10px 24px rgba(8, 43, 76, 0.08), 0 0 0 1px rgba(244, 123, 32, 0.18);
+                }
+            }
+            @keyframes faqBarContinuous {
+                0%, 100% {
+                    opacity: 0.25;
+                    transform: scaleY(0.35);
+                }
+                50% {
+                    opacity: 0.85;
+                    transform: scaleY(0.9);
+                }
+            }
+
             .info-block-row {
                 background: #f8fafc;
                 border: 1.5px solid #cbd5e1;
@@ -401,13 +477,111 @@
                 display: flex;
                 gap: 14px;
                 align-items: center;
-                transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                            border-color 0.3s ease, 
+                            box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                            background 0.3s ease;
+                animation: tabFloatContinuous 4s ease-in-out infinite;
+                will-change: transform, box-shadow, border-color;
             }
+
+            /* Elegant light sheen reflection moving across each tab */
+            .info-block-row::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -120%;
+                width: 60%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+                transform: skewX(-22deg);
+                pointer-events: none;
+                animation: tabShimmerSweep 4s ease-in-out infinite;
+            }
+
+            /* Staggered continuous delays for the 5 tabs */
+            .info-block-row:nth-child(1),
+            .info-block-row:nth-child(1)::after {
+                animation-delay: 0s;
+            }
+            .info-block-row:nth-child(2),
+            .info-block-row:nth-child(2)::after {
+                animation-delay: 0.8s;
+            }
+            .info-block-row:nth-child(3),
+            .info-block-row:nth-child(3)::after {
+                animation-delay: 1.6s;
+            }
+            .info-block-row:nth-child(4),
+            .info-block-row:nth-child(4)::after {
+                animation-delay: 2.4s;
+            }
+            .info-block-row:nth-child(5),
+            .info-block-row:nth-child(5)::after {
+                animation-delay: 3.2s;
+            }
+
+            /* Continuous soft pulse for icon badges inside the tabs */
+            .info-block-row > div:first-child {
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+                animation: iconBeaconGlow 4s ease-in-out infinite;
+            }
+            .info-block-row:nth-child(1) > div:first-child { animation-delay: 0s; }
+            .info-block-row:nth-child(2) > div:first-child { animation-delay: 0.8s; }
+            .info-block-row:nth-child(3) > div:first-child { animation-delay: 1.6s; }
+            .info-block-row:nth-child(4) > div:first-child { animation-delay: 2.4s; }
+            .info-block-row:nth-child(5) > div:first-child { animation-delay: 3.2s; }
+
+            /* Interactive Hover State: pauses continuous wave and locks in elevated focus */
             .info-block-row:hover {
-                border-color: #94a3b8;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 16px rgba(8, 43, 76, 0.08);
-                background: #ffffff;
+                animation-play-state: paused;
+                border-color: var(--accent-orange) !important;
+                transform: translateY(-4px) scale(1.01) !important;
+                box-shadow: 0 14px 28px rgba(8, 43, 76, 0.12), 0 0 0 1.5px rgba(244, 123, 32, 0.35) !important;
+                background: #ffffff !important;
+            }
+            .info-block-row:hover::after {
+                opacity: 0;
+            }
+            .info-block-row:hover > div:first-child {
+                animation-play-state: paused;
+                transform: scale(1.12);
+                box-shadow: 0 0 16px 3px rgba(244, 123, 32, 0.35);
+            }
+
+            /* Action tabs (View on Map & WhatsApp) continuous breathing */
+            .contact-map-tab-btn {
+                animation: actionMapFloat 3.2s ease-in-out infinite;
+            }
+            .contact-wa-tab-btn {
+                animation: actionWaFloat 3.2s ease-in-out infinite 1.6s;
+            }
+            .contact-map-tab-btn:hover,
+            .contact-wa-tab-btn:hover {
+                animation-play-state: paused !important;
+            }
+
+            /* FAQ continuous breathing animations */
+            .faq-card {
+                animation: faqCardContinuous 4.8s ease-in-out infinite;
+                will-change: transform, box-shadow, border-color;
+            }
+            .faq-card::before {
+                animation: faqBarContinuous 4.8s ease-in-out infinite;
+            }
+            .faq-card:nth-child(1), .faq-card:nth-child(1)::before { animation-delay: 0s; }
+            .faq-card:nth-child(2), .faq-card:nth-child(2)::before { animation-delay: 0.8s; }
+            .faq-card:nth-child(3), .faq-card:nth-child(3)::before { animation-delay: 1.6s; }
+            .faq-card:nth-child(4), .faq-card:nth-child(4)::before { animation-delay: 2.4s; }
+            .faq-card:nth-child(5), .faq-card:nth-child(5)::before { animation-delay: 3.2s; }
+            .faq-card:nth-child(6), .faq-card:nth-child(6)::before { animation-delay: 4.0s; }
+            .faq-card:hover, .faq-card:focus-within, .faq-card.is-active {
+                animation-play-state: paused;
+            }
+            .faq-card:hover::before, .faq-card:focus-within::before, .faq-card.is-active::before {
+                animation-play-state: paused;
             }
             .info-block-tag {
                 font-size: 11.5px;
@@ -559,10 +733,10 @@
                     </div>
 
                     <div style="margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                        <a href="https://maps.google.com/?q=Pune,+Maharashtra" target="_blank" rel="noopener" style="background: var(--dark-navy); color: #fff; text-decoration: none; padding: 14px 16px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 14px; display: flex; justify-content: center; align-items: center; gap: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--primary-navy)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='var(--dark-navy)'; this.style.transform='translateY(0)';">
+                        <a href="https://maps.google.com/?q=Pune,+Maharashtra" target="_blank" rel="noopener" class="contact-map-tab-btn" style="background: var(--dark-navy); color: #fff; text-decoration: none; padding: 14px 16px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 14px; display: flex; justify-content: center; align-items: center; gap: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--primary-navy)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='var(--dark-navy)'; this.style.transform='translateY(0)';">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg> View on Map
                         </a>
-                        <a href="https://wa.me/919604646777" target="_blank" rel="noopener" style="background: #25D366; color: #fff; text-decoration: none; padding: 14px 16px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 14px; display: flex; justify-content: center; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 18px rgba(37, 211, 102, 0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 211, 102, 0.25)';">
+                        <a href="https://wa.me/919604646777" target="_blank" rel="noopener" class="contact-wa-tab-btn" style="background: #25D366; color: #fff; text-decoration: none; padding: 14px 16px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 14px; display: flex; justify-content: center; align-items: center; gap: 8px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 18px rgba(37, 211, 102, 0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(37, 211, 102, 0.25)';">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.89-4.443 9.891-9.891.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.74-1.975zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> WhatsApp
                         </a>
                     </div>
