@@ -657,27 +657,36 @@
                         <p class="contact-card-sub">Provide your project specifications. Our survey engineers will review the scope and respond within 24 hours.</p>
                     </div>
                     
-                    <form id="contactForm" style="display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+                    <div id="contactFormStatus" style="display: none; padding: 16px 20px; border-radius: 10px; margin-bottom: 22px; font-size: 14.5px; line-height: 1.55; box-shadow: 0 4px 15px rgba(8, 43, 76, 0.06); transition: all 0.3s ease;"></div>
+
+                    <form id="contactForm" action="https://formsubmit.co/tanviii6104@gmail.com" method="POST" style="display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+                        <!-- Destination & Configuration Fields -->
+                        <input type="hidden" name="_subject" value="New Project Quotation Request - Reliable Land Survey">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="contact.html?submitted=true">
+                        <input type="text" name="_honey" style="display:none">
+
                         <div class="contact-form-grid">
                             <div>
                                 <label class="contact-label">Full Name *</label>
-                                <input type="text" id="contact-name" class="contact-input-field" placeholder="Enter full name" required>
+                                <input type="text" id="contact-name" name="Full Name" class="contact-input-field" placeholder="Enter full name" required>
                             </div>
                             <div>
                                 <label class="contact-label">Company / Firm Name</label>
-                                <input type="text" id="contact-company" class="contact-input-field" placeholder="Organization name">
+                                <input type="text" id="contact-company" name="Company / Firm Name" class="contact-input-field" placeholder="Organization name">
                             </div>
                             <div>
                                 <label class="contact-label">Email Address *</label>
-                                <input type="email" id="contact-email" class="contact-input-field" placeholder="name@example.com" required>
+                                <input type="email" id="contact-email" name="Email Address" class="contact-input-field" placeholder="name@example.com" required>
                             </div>
                             <div>
                                 <label class="contact-label">Phone Number *</label>
-                                <input type="tel" id="contact-phone" class="contact-input-field" placeholder="+91 96046 46777" required>
+                                <input type="tel" id="contact-phone" name="Phone Number" class="contact-input-field" placeholder="+91 96046 46777" required>
                             </div>
                             <div class="full-width">
                                 <label class="contact-label">Survey Service Required *</label>
-                                <select id="contact-service" class="contact-input-field" required style="cursor: pointer;">
+                                <select id="contact-service" name="Survey Service Required" class="contact-input-field" required style="cursor: pointer;">
                                     <option value="" disabled selected>Select a survey service...</option>
                                     <option value="Topographical Survey">Topographical & Land Survey</option>
                                     <option value="DGPS / GNSS Control">DGPS / GNSS Control Establishment</option>
@@ -692,16 +701,16 @@
                             </div>
                             <div class="full-width">
                                 <label class="contact-label">Project Location & Scope</label>
-                                <input type="text" id="contact-location" class="contact-input-field" placeholder="e.g. Pune, PCMC, Hinjewadi, or Acreage/KM">
+                                <input type="text" id="contact-location" name="Project Location & Scope" class="contact-input-field" placeholder="e.g. Pune, PCMC, Hinjewadi, or Acreage/KM">
                             </div>
                             <div class="full-width">
                                 <label class="contact-label">Message *</label>
-                                <textarea id="contact-message" class="contact-input-field" rows="3" placeholder="Describe site details, required deliverables (Contours, 3D CAD, Point Cloud), and timeline..." required style="resize: vertical;"></textarea>
+                                <textarea id="contact-message" name="Project Details & Deliverables" class="contact-input-field" rows="3" placeholder="Describe site details, required deliverables (Contours, 3D CAD, Point Cloud), and timeline..." required style="resize: vertical;"></textarea>
                             </div>
                         </div>
 
                         <div style="margin-top: 18px;">
-                            <button type="submit" class="btn btn-primary submit-consultation-btn" style="width: 100%; padding: 15px 24px; font-size: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                            <button type="submit" id="contactSubmitBtn" class="btn btn-primary submit-consultation-btn" style="width: 100%; padding: 15px 24px; font-size: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;">
                                 Submit Consultation Request
                             </button>
                         </div>
@@ -1146,7 +1155,90 @@
         </div>
     </footer>
 <!-- Script -->
-    <script src="js/script.js?v=20261008_12"></script>
+    <script src="js/script.js?v=20261009_02"></script>
+
+    <!-- Contact Form AJAX Submission & Redirect Handler -->
+    <script>
+    (function() {
+        // Check for redirect return status (?submitted=true)
+        if (window.location.search.indexOf('submitted=true') !== -1) {
+            var statusBox = document.getElementById('contactFormStatus');
+            if (statusBox) {
+                statusBox.style.display = 'block';
+                statusBox.style.background = '#ecfdf5';
+                statusBox.style.border = '1.5px solid #10b981';
+                statusBox.style.color = '#065f46';
+                statusBox.innerHTML = '<div style="display:flex;align-items:flex-start;gap:12px;">' +
+                    '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>' +
+                    '<div><strong style="font-size:15px;color:#064e3b;">Quotation Request Sent Successfully!</strong><br>' +
+                    'Your project specifications have been submitted directly to our engineering desk (<strong>tanviii6104@gmail.com</strong>). Our survey engineers will review the scope and contact you within 24 hours.</div></div>';
+                statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        var form = document.getElementById('contactForm');
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var btn = document.getElementById('contactSubmitBtn') || form.querySelector('button[type="submit"]');
+            var statusBox = document.getElementById('contactFormStatus');
+            var originalText = btn ? btn.innerHTML : 'Submit Consultation Request';
+
+            if (btn) {
+                btn.disabled = true;
+                btn.style.opacity = '0.75';
+                btn.style.cursor = 'not-allowed';
+                btn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px;">Submitting Request...</span>';
+            }
+
+            if (statusBox) {
+                statusBox.style.display = 'none';
+            }
+
+            var formData = new FormData(form);
+
+            fetch('https://formsubmit.co/ajax/tanviii6104@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(function(res) {
+                return res.json();
+            })
+            .then(function(data) {
+                if (statusBox) {
+                    statusBox.style.display = 'block';
+                    statusBox.style.background = '#ecfdf5';
+                    statusBox.style.border = '1.5px solid #10b981';
+                    statusBox.style.color = '#065f46';
+                    statusBox.innerHTML = '<div style="display:flex;align-items:flex-start;gap:12px;">' +
+                        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>' +
+                        '<div><strong style="font-size:15px;color:#064e3b;">Quotation Request Sent Successfully!</strong><br>' +
+                        'Thank you. Your project specifications have been submitted directly to our engineering desk (<strong>tanviii6104@gmail.com</strong>). Our survey engineers will review the scope and contact you within 24 hours.</div></div>';
+                    statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                form.reset();
+            })
+            .catch(function(err) {
+                console.warn('AJAX error, falling back to standard submit:', err);
+                form.submit();
+            })
+            .finally(function() {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    btn.style.cursor = 'pointer';
+                    btn.innerHTML = originalText;
+                }
+            });
+        });
+    })();
+    </script>
+
 </body>
 </html>
 
