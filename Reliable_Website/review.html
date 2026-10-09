@@ -682,24 +682,41 @@
         </div>
     </footer>
 <!-- Script -->
-    <script src="js/script.js?v=20261009_05"></script>
+    <script src="js/script.js?v=20261009_06"></script>
 
     <!-- Review Form AJAX Submission & Redirect Handler -->
     <script>
     (function() {
+        function showFormStatus(statusBox, title, message) {
+            if (!statusBox) return;
+            clearTimeout(statusBox._hideTimer);
+            statusBox.style.display = 'block';
+            statusBox.style.opacity = '1';
+            statusBox.style.transform = 'translateY(0)';
+            statusBox.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            statusBox.style.background = '#ecfdf5';
+            statusBox.style.border = '1.5px solid #10b981';
+            statusBox.style.color = '#065f46';
+            statusBox.innerHTML = '<div style="display:flex;align-items:center;gap:12px;">' +
+                '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>' +
+                '<div><strong style="font-size:15px;color:#064e3b;">' + title + '</strong> ' +
+                '<span style="font-size:14px;color:#065f46;">' + message + '</span></div></div>';
+            statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Automatically disappear after 5 seconds with smooth fade
+            statusBox._hideTimer = setTimeout(function() {
+                statusBox.style.opacity = '0';
+                statusBox.style.transform = 'translateY(-8px)';
+                setTimeout(function() {
+                    statusBox.style.display = 'none';
+                    statusBox.style.transform = 'translateY(0)';
+                }, 600);
+            }, 5000);
+        }
+
         if (window.location.search.indexOf('submitted=true') !== -1) {
             var statusBox = document.getElementById('reviewFormStatus');
-            if (statusBox) {
-                statusBox.style.display = 'block';
-                statusBox.style.background = '#ecfdf5';
-                statusBox.style.border = '1.5px solid #10b981';
-                statusBox.style.color = '#065f46';
-                statusBox.innerHTML = '<div style="display:flex;align-items:center;gap:12px;">' +
-                    '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>' +
-                    '<div><strong style="font-size:15px;color:#064e3b;">Review Submitted Successfully!</strong> ' +
-                    '<span style="font-size:14px;color:#065f46;">It will get verified within 24 hours.</span></div></div>';
-                statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+            showFormStatus(statusBox, 'Review Submitted Successfully!', 'It will get verified within 24 hours.');
         }
 
         var form = document.getElementById('reviewForm');
@@ -720,6 +737,7 @@
             }
 
             if (statusBox) {
+                clearTimeout(statusBox._hideTimer);
                 statusBox.style.display = 'none';
             }
 
@@ -751,17 +769,7 @@
                 return res.json();
             })
             .then(function(data) {
-                if (statusBox) {
-                    statusBox.style.display = 'block';
-                    statusBox.style.background = '#ecfdf5';
-                    statusBox.style.border = '1.5px solid #10b981';
-                    statusBox.style.color = '#065f46';
-                    statusBox.innerHTML = '<div style="display:flex;align-items:center;gap:12px;">' +
-                        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>' +
-                        '<div><strong style="font-size:15px;color:#064e3b;">Review Submitted Successfully!</strong> ' +
-                        '<span style="font-size:14px;color:#065f46;">It will get verified within 24 hours.</span></div></div>';
-                    statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                showFormStatus(statusBox, 'Review Submitted Successfully!', 'It will get verified within 24 hours.');
                 form.reset();
             })
             .catch(function(err) {

@@ -535,6 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (statusBox) {
+                clearTimeout(statusBox._hideTimer);
                 statusBox.style.display = 'none';
             }
 
@@ -567,7 +568,11 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(function(data) {
                 if (statusBox) {
+                    clearTimeout(statusBox._hideTimer);
                     statusBox.style.display = 'block';
+                    statusBox.style.opacity = '1';
+                    statusBox.style.transform = 'translateY(0)';
+                    statusBox.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                     statusBox.style.background = '#ecfdf5';
                     statusBox.style.border = '1.5px solid #10b981';
                     statusBox.style.color = '#065f46';
@@ -576,6 +581,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         '<div><strong style="font-size:15px;color:#064e3b;">Request Sent Successfully!</strong> ' +
                         '<span style="font-size:14px;color:#065f46;">' + successMsg + '</span></div></div>';
                     statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Auto disappear after 5 seconds
+                    statusBox._hideTimer = setTimeout(function() {
+                        statusBox.style.opacity = '0';
+                        statusBox.style.transform = 'translateY(-8px)';
+                        setTimeout(function() {
+                            statusBox.style.display = 'none';
+                            statusBox.style.transform = 'translateY(0)';
+                        }, 600);
+                    }, 5000);
                 }
                 form.reset();
             })
