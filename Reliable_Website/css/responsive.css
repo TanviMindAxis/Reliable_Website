@@ -326,15 +326,16 @@ html, body {
     bottom: calc(25px + env(safe-area-inset-bottom, 0px)) !important;
   }
   * { -webkit-tap-highlight-color: transparent; }
-  .top-bar-exact { height: 75px; padding: 6px 0; }
-  .top-bar-content { flex-direction: row; flex-wrap: wrap; gap: 6px; justify-content: center; width: 95%; }
-  .top-bar-left { flex-direction: row; flex-wrap: wrap; gap: 8px; justify-content: center; text-align: center; font-size: 10.5px; }
-  .top-bar-right { gap: 10px; margin-top: 2px; }
-  .top-bar-right .top-bar-social { width: 22px; height: 22px; }
-  .top-bar-divider { display: none; }
+  .top-bar-exact { height: 42px; padding: 0; }
+  .top-bar-track { display: flex; width: 100%; justify-content: center; }
+  .top-bar-duplicate { display: none !important; }
+  .top-bar-content { flex-direction: row; flex-wrap: nowrap; justify-content: space-between; width: 92%; }
+  .top-bar-left { flex-direction: row; flex-wrap: nowrap; gap: 12px; font-size: 11.5px; }
+  .top-bar-right { gap: 8px; margin-top: 0; }
+  .top-bar-divider { display: inline-block; }
   
   .nav-exact { 
-    top: 75px; 
+    top: 55px; 
     left: 10px !important; 
     right: 10px !important; 
     width: auto !important; 
@@ -465,8 +466,87 @@ html, body {
 /* Mobile Devices */
 @media (max-width: 768px) {
   .hero-video-bg { object-position: center center; }
-  .top-bar-exact { display: flex; }
-  .nav-exact { top: 75px; }
+  /* Mobile Top Bar: Sleek Moving Continuous Ticker (Single Row, No Wrapping) */
+  .top-bar-exact {
+    height: 38px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .top-bar-exact::-webkit-scrollbar {
+    display: none !important;
+  }
+  .top-bar-track {
+    display: flex !important;
+    width: max-content !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    animation: topBarMarquee 20s linear infinite !important;
+    will-change: transform !important;
+  }
+  .top-bar-exact:hover .top-bar-track,
+  .top-bar-exact:active .top-bar-track {
+    animation-play-state: paused !important;
+  }
+  .top-bar-content {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    width: auto !important;
+    padding: 0 25px !important;
+    gap: 15px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .top-bar-content.top-bar-duplicate {
+    display: inline-flex !important;
+  }
+  .top-bar-left {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 10px !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
+    flex-shrink: 0 !important;
+  }
+  .top-bar-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .top-bar-divider {
+    display: inline-block !important;
+    color: rgba(255, 255, 255, 0.3) !important;
+    margin: 0 4px !important;
+  }
+  .top-bar-right {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  .top-bar-right .top-bar-social {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 11px !important;
+    flex-shrink: 0 !important;
+  }
+  .top-bar-right .top-bar-social svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .nav-exact {
+    top: 48px !important;
+  }
   .hero-title-exact { font-size: 2.5rem; }
   .hero-desc-exact { font-size: 1rem; }
   .flip-grid { grid-template-columns: 1fr; }
@@ -916,3 +996,13 @@ div[style*="grid-template-columns: 1fr 1.15fr"] {
 
 
 
+
+
+@keyframes topBarMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
