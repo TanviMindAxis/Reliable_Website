@@ -645,17 +645,27 @@ html, body {
 
 
 
-  /* Centered Logo with Left-Aligned Text Across Views */
+  /* Center footer logo on mobile & tablet (<= 1024px), while desktop remains left-aligned */
+@media (max-width: 1024px) {
   .footer-brand,
   .footer-brand-inner {
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
+    align-items: center !important;
+    text-align: center !important;
     width: 100% !important;
   }
 
-  @media (max-width: 1024px) {
+  .footer-brand a,
+  .footer-brand-inner a {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
   .footer-brand img,
   .footer-brand .footer-logo-img,
   .footer-logo-img {
@@ -663,23 +673,24 @@ html, body {
     align-self: center !important;
     display: block !important;
   }
-}
 
   .footer-brand ul,
   .footer-brand .footer-brand-list,
   .footer-brand-list {
-    text-align: left !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    justify-content: center !important;
     width: 100% !important;
   }
 
   .footer-brand ul li,
   .footer-brand .footer-brand-list li,
   .footer-brand-list li {
-    text-align: left !important;
+    text-align: center !important;
   }
-
+}
 
 /* Strictly remove section-label orange dot in responsive */
 .section-label::before,
