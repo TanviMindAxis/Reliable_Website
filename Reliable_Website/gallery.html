@@ -257,7 +257,7 @@
                 <div style="width: 40px; height: 3px; background: var(--accent-orange); margin-bottom: 25px;"></div>
                 <h1
                     style="font-size: clamp(2.5rem, 5vw, 4rem); color: var(--dark-navy); line-height: 1.1; margin-bottom: 20px; font-weight: 800; text-shadow: 0 0 15px rgba(255,255,255,0.7);">
-                    Precision in Focus. <span style="color: var(--accent-orange);">Captured in Field.</span>
+                    Precision in Focus.<span class="gallery-title-break"> </span><span class="gallery-title-accent" style="color: var(--accent-orange);">Captured in Field.</span>
                 </h1>
                 <p style="font-size: 1.1rem; color: #333; line-height: 1.6; max-width: 540px; font-weight: 700; margin-bottom: 25px; text-shadow: 0 0 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.9);">
                     Explore verified field operations and engineering portfolio across Maharashtra — Total Station benchmarks, DGPS networks, RTK drone mapping, and LiDAR scans.
@@ -272,6 +272,15 @@
     </div>
 
     <style>
+      @media (max-width: 1024px) {
+        .gallery-title-break {
+          display: none;
+        }
+        .gallery-title-accent {
+          display: block;
+          margin-top: 6px;
+        }
+      }
       .hero-gallery-cta {
         padding: 16px 36px;
         font-size: 15.5px;

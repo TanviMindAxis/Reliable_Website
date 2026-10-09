@@ -647,6 +647,15 @@ html, body {
 
   /* Center footer logo on mobile & tablet (<= 1024px), while text remains on the left side */
 @media (max-width: 1024px) {
+  /* Gallery Hero: Take 'Captured in Field' below 'Precision in Focus' on Tablet & Mobile */
+  .gallery-title-break {
+    display: none !important;
+  }
+  .gallery-title-accent {
+    display: block !important;
+    margin-top: 6px !important;
+  }
+
   .footer-brand,
   .footer-brand-inner {
     display: flex !important;
