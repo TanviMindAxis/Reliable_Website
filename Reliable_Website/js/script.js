@@ -556,10 +556,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     statusBox.style.background = '#ecfdf5';
                     statusBox.style.border = '1.5px solid #10b981';
                     statusBox.style.color = '#065f46';
-                    statusBox.innerHTML = '<div style="display:flex;align-items:flex-start;gap:12px;">' +
-                        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>' +
-                        '<div><strong style="font-size:15px;color:#064e3b;">Submitted Successfully!</strong><br>' +
-                        successMsg + '</div></div>';
+                    statusBox.innerHTML = '<div style="display:flex;align-items:center;gap:12px;">' +
+                        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg>' +
+                        '<div><strong style="font-size:15px;color:#064e3b;">Request Sent Successfully!</strong> ' +
+                        '<span style="font-size:14px;color:#065f46;">' + successMsg + '</span></div></div>';
                     statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
                 form.reset();
@@ -579,8 +579,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    setupFormSubmit('contactForm', 'contactFormStatus', 'contactSubmitBtn', 'Your project specifications have been submitted directly to our engineering desk (<strong>tanviii6104@gmail.com</strong>). We will review the scope and contact you within 24 hours.');
-    setupFormSubmit('reviewForm', 'reviewFormStatus', 'reviewSubmitBtn', 'Thank you for your valuable feedback. Your review has been submitted to <strong>tanviii6104@gmail.com</strong>.');
+    setupFormSubmit('contactForm', 'contactFormStatus', 'contactSubmitBtn', 'It will get verified within 24 hours.');
+    setupFormSubmit('reviewForm', 'reviewFormStatus', 'reviewSubmitBtn', 'It will get verified within 24 hours.');
 
 });
 
