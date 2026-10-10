@@ -610,9 +610,9 @@
 }
 
 /* ==========================================================================
-   5. TABLET RESPONSIVE (max-width: 1024px)
+   5. TABLET TOP BAR ONLY (769px - 1024px: Static, Centered)
    ========================================================================== */
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .top-bar-exact {
     height: 42px;
     padding: 0;
@@ -648,7 +648,12 @@
   .top-bar-divider {
     display: inline-block;
   }
+}
 
+/* ==========================================================================
+   5b. TABLET & MOBILE SHARED NAV & FOOTER (max-width: 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
   .nav-exact {
     top: 55px;
     left: 10px !important;
