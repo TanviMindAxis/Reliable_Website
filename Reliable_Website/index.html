@@ -26,8 +26,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20261009_20">
-    <link rel="stylesheet" href="css/responsive.css?v=20261009_20">
+    <link rel="stylesheet" href="css/style.css?v=20261010_01">
+    <link rel="stylesheet" href="css/responsive.css?v=20261010_01">
 
     <!-- Strictly prevent horizontal overflow on all viewports -->
     <style>
@@ -208,7 +208,7 @@
        TOP BAR (Shared Component)
     ========================================== -->
     <div id="site-topbar"></div>
-    <script src="js/topbar.js?v=20261009_20"></script>
+    <script src="js/topbar.js?v=20261010_01"></script>
 
         <nav class="nav-exact anim-nav">
             <div class="nav-logo">
@@ -516,22 +516,92 @@
                 position: relative;
                 z-index: 3;
                 text-align: center;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                padding: 0 4px;
             }
 
             .tech-number {
                 font-size: 3.5rem;
                 font-weight: 800;
                 color: #fff;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
                 text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+                line-height: 1.1;
+                font-family: 'Inter', 'Manrope', sans-serif;
             }
 
+            .tech-counter-label,
             .tech-label {
-                font-size: 0.95rem;
-                font-weight: 800;
-                color: #FF5722;
-                text-transform: uppercase;
-                letter-spacing: 1px;
+                position: static !important;
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                font-size: 0.95rem !important;
+                font-weight: 700 !important;
+                color: #FF5722 !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.8px !important;
+                line-height: 1.35 !important;
+                text-align: center !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+                animation: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                white-space: normal !important;
+                word-break: normal !important;
+                overflow-wrap: break-word !important;
+                font-family: 'Inter', 'Manrope', sans-serif !important;
+            }
+
+            @media (max-width: 768px) {
+                .counter-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 12px !important;
+                    margin-top: 25px !important;
+                }
+
+                .tech-counter-item {
+                    padding: 22px 8px !important;
+                    min-height: 140px !important;
+                }
+
+                .tech-number {
+                    font-size: clamp(2rem, 7vw, 2.5rem) !important;
+                    margin-bottom: 6px !important;
+                }
+
+                .tech-counter-label,
+                .tech-label {
+                    font-size: clamp(0.72rem, 2.8vw, 0.82rem) !important;
+                    line-height: 1.3 !important;
+                    letter-spacing: 0.3px !important;
+                    padding: 0 4px !important;
+                }
+            }
+
+            @media (max-width: 360px) {
+                .counter-grid {
+                    gap: 10px !important;
+                }
+
+                .tech-counter-item {
+                    padding: 18px 6px !important;
+                    min-height: 130px !important;
+                }
+
+                .tech-counter-label,
+                .tech-label {
+                    font-size: 0.72rem !important;
+                    letter-spacing: 0.2px !important;
+                }
             }
         </style>
 
@@ -540,29 +610,29 @@
                 style="color: #FFFFFF; font-weight: bold; letter-spacing: 2px; border-color: rgba(255,255,255,0.2);">
                 Precision Backed by Capability</div>
 
-            <div class="counter-grid" style="gap: 30px; margin-top: 40px;">
+            <div class="counter-grid">
                 <div class="tech-counter-item">
                     <div class="tech-content">
                         <div class="tech-number counter-number" data-target="22+">0</div>
-                        <div class="tech-label">Technical Manpower</div>
+                        <div class="tech-counter-label">Technical Manpower</div>
                     </div>
                 </div>
                 <div class="tech-counter-item">
                     <div class="tech-content">
                         <div class="tech-number counter-number" data-target="22">0</div>
-                        <div class="tech-label">Instruments Listed</div>
+                        <div class="tech-counter-label">Instruments Listed</div>
                     </div>
                 </div>
                 <div class="tech-counter-item">
                     <div class="tech-content">
                         <div class="tech-number counter-number" data-target="15">0</div>
-                        <div class="tech-label">Working Instruments</div>
+                        <div class="tech-counter-label">Working Instruments</div>
                     </div>
                 </div>
                 <div class="tech-counter-item">
                     <div class="tech-content">
                         <div class="tech-number counter-number" data-target="2">0</div>
-                        <div class="tech-label">Advanced Drones</div>
+                        <div class="tech-counter-label">Advanced Drones</div>
                     </div>
                 </div>
             </div>

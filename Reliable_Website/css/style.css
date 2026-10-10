@@ -495,8 +495,9 @@ textarea {
   }
 }
 
-/* Floating Technical Coordinate Labels */
-.tech-label {
+/* Floating Technical Coordinate Labels (Hero) */
+.hero-floating-coord,
+.hero-tech-label {
   position: absolute;
   padding: 6px 12px;
   background: rgba(8, 43, 76, 0.75);
@@ -532,6 +533,33 @@ textarea {
 }
 
 .tech-dot { display: none !important; }
+
+/* Capability Counter Labels */
+.tech-counter-label,
+.tech-label {
+  position: static;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-orange, #FF5722);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.35;
+  text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  animation: none;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  font-family: 'Inter', 'Manrope', sans-serif;
+}
 
 @keyframes pulseFade {
   0% {
